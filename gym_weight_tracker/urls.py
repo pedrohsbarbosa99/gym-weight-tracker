@@ -25,5 +25,4 @@ urlpatterns = [
     path("", home),
     path("admin/", admin.site.urls),
     path("api/", api.urls),
-    path("teste/", TemplateView.as_view(template_name='template_graph.html'))
 ]
