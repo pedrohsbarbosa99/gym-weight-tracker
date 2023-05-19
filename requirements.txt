@@ -5,3 +5,7 @@ Django
 python-decouple
 gunicorn
 psycopg2-binary
+django-ninja
+django-cors-headers
+django-ninja-jwt
+six==1.16.0

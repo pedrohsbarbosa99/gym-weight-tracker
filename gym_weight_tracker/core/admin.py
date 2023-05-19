@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from gym_weight_tracker.core.models import Exercise, Progression
+
+admin.site.register(Exercise)
+admin.site.register(Progression)

@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from gym_weight_tracker.api.main import api
 
 from gym_weight_tracker.core.views import home
+from django.views.generic.base import TemplateView
+
 
 urlpatterns = [
-    path('', home),
-    path('admin/', admin.site.urls),
+    path("", home),
+    path("admin/", admin.site.urls),
+    path("api/", api.urls),
+    path("teste/", TemplateView.as_view(template_name='template_graph.html'))
 ]
