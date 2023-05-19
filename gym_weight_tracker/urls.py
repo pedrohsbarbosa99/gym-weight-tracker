@@ -18,7 +18,6 @@ from django.urls import path
 from gym_weight_tracker.api.main import api
 
 from gym_weight_tracker.core.views import home
-from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
