@@ -1,58 +1,62 @@
-# Controle de Progressão de Carga de Academia e Evolução
+# Gym Weight Progress and Evolution Control
 
-Este é um projeto em Django de uma API para controlar a progressão de carga em exercícios de academia e acompanhar a evolução dos usuários.
+This is a Django project for an API that controls weight progression in gym exercises and tracks users' evolution.
 
-## Requisitos do sistema
+## System Requirements
 
 - Linux
 - Python >= 3.8
 
-## Configuração do ambiente de desenvolvimento
+## Development Environment Setup
 
-Não há instruções específicas de configuração do ambiente de desenvolvimento.
+There are no specific instructions for setting up the development environment.
 
-## Dependências
+## Dependencies
 
-As dependências necessárias para executar o projeto estão listadas no arquivo `requirements.txt`.
+The dependencies required to run the project are listed in the `requirements.txt` file.
 
-Para instalá-las, execute o seguinte comando:
+To install them, run the following command:
 
 pip install -r requirements.txt
 
-## Executando o projeto localmente
+## Running the Project Locally
 
-Para executar o projeto localmente, siga as etapas abaixo:
+To run the project locally, follow the steps below:
 
-1. Crie um ambiente virtual:
+1. Create a virtual environment:
 
 python -m venv myenv
 
-2. Ative o ambiente virtual:
+arduino
+
+2. Activate the virtual environment:
 
 source myenv/bin/activate
 
-3. Instale as dependências:
+3. Install the dependencies:
 
-4. Execute o servidor de desenvolvimento:
+pip install -r requirements.txt
+
+4. Run the development server:
 
 python manage.py runserver
 
 ## Endpoints/APIs
 
-Todos os endpoints/APIs disponíveis podem ser acessados através do Swagger, acessível na rota `/api/docs`.
+All available endpoints/APIs can be accessed through Swagger, accessible at `/api/docs`.
 
-## Modelos de Dados
+## Data Models
 
-O projeto utiliza os seguintes modelos de dados:
+The project uses the following data models:
 
-- Exercise (Exercício)
-- Progression (Progressão)
+- Exercise
+- Progression
 
-## Autenticação
+## Authentication
 
-Para autenticar-se na API e obter um token de acesso, faça uma requisição POST para `/api/token/pair`, fornecendo um email e uma senha válidos.
+To authenticate to the API and obtain an access token, make a POST request to `/api/token/pair`, providing a valid email and password.
 
-Exemplo de requisição usando cURL:
+Example request using cURL:
 
 curl -X 'POST'
 'http://127.0.0.1:8000/api/token/pair'
@@ -63,33 +67,33 @@ curl -X 'POST'
 "email": "email"
 }'
 
-## Formatos de Dados
+## Data Formats
 
-A API suporta o formato de dados JSON.
+The API supports JSON data format.
 
-## Contribuição
+## Contribution
 
-Não existem instruções específicas para contribuição no momento.
+There are no specific instructions for contribution at the moment.
 
-## Testes
+## Testing
 
-O projeto não possui testes automatizados.
+The project does not have automated tests.
 
-## Práticas Recomendadas
+## Best Practices
 
-Não existem práticas recomendadas específicas no momento.
+There are no specific recommended best practices at the moment.
 
-## Exemplo de Uso
+## Example Usage
 
-Você pode consultar o Swagger para obter exemplos de uso e entender como utilizar a API.
+You can refer to Swagger for usage examples and understanding how to utilize the API.
 
-## Mantenedor
+## Maintainer
 
-Este projeto é mantido por Pedro Barbosa.
+This project is maintained by Pedro Barbosa.
 
 - Email: pedrohsbarbosa99@gmail.com
 - GitHub: [pedrohsbarbosa99](https://github.com/pedrohsbarbosa99)
 
-Sinta-se à vontade para entrar em contato com o mantenedor para obter mais informações ou esclarecer dúvidas sobre o projeto.
+Feel free to contact the maintainer for more information or clarification regarding the project.
 
-Este é um projeto pessoal com o intuito de estudo.
+This is a personal project intended for study purposes.
