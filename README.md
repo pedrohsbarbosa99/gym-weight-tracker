@@ -27,8 +27,6 @@ To run the project locally, follow the steps below:
 
 python -m venv myenv
 
-arduino
-
 2. Activate the virtual environment:
 
 source myenv/bin/activate
