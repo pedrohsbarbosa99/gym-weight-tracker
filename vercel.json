@@ -1,0 +1,14 @@
+{
+"builds": [
+    {
+      "src": "gym_weight_tracker/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "gym_weight_tracker/wsgi.py"
+    }
+  ]
+}
