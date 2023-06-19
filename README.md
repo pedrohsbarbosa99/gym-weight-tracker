@@ -6,7 +6,6 @@ Este é um projeto em Django de uma API para controlar a progressão de carga em
 
 - Linux
 - Python >= 3.8
-- Django
 
 ## Configuração do ambiente de desenvolvimento
 
