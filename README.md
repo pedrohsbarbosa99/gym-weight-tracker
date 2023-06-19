@@ -55,7 +55,7 @@ Para autenticar-se na API e obter um token de acesso, faça uma requisição POS
 Exemplo de requisição usando cURL:
 
 curl -X 'POST'
-'https://gym-weight-tracker.vercel.app/api/token/pair'
+'http://127.0.0.1:8000/api/token/pair'
 -H 'accept: application/json'
 -H 'Content-Type: application/json'
 -d '{
