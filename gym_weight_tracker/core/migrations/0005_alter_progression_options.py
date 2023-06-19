@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0004_alter_exercise_id'),
+        ('core', '0003_alter_progression_created_at'),
     ]
 
     operations = [
