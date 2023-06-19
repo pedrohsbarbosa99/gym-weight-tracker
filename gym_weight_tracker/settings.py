@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 from decouple import config, Csv
 from dj_database_url import parse as dburl
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
-    'ninja_jwt',
+    "ninja_jwt",
     "ninja_extra",
     "gym_weight_tracker.core",
     "gym_weight_tracker.account",
@@ -110,6 +111,11 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+NINJA_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=7),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
+}
 
 AUTH_USER_MODEL = "account.User"
 
