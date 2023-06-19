@@ -12,11 +12,11 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import get_object_or_404
 from django.db.models import F
 
-from ninja_jwt.controller import NinjaJWTDefaultController
+from .controller import NinjaJWTDefaultController
 from ninja_jwt.authentication import JWTAuth
 from ninja_extra import NinjaExtraAPI
 
-api = NinjaExtraAPI(title="Light Weight Baby")
+api = NinjaExtraAPI(title="Light Weight Baby", auth=JWTAuth())
 api.register_controllers(NinjaJWTDefaultController)
 
 

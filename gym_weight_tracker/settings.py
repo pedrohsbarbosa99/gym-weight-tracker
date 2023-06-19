@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     'ninja_jwt',
+    "ninja_extra",
     "gym_weight_tracker.core",
     "gym_weight_tracker.account",
-    "ninja_extra",
 ]
 
 MIDDLEWARE = [
