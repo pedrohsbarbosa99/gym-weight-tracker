@@ -30,7 +30,7 @@ def exercises(request: WSGIRequest):
     return Exercise.objects.all()
 
 
-@api.api_operation(["PUT", "PATCH"], "/exercises/{exercise_id}", tags=["exercise"])
+@api.patch("/exercises/{exercise_id}", tags=["exercise"])
 def update_exercise(request, exercise_id: int, payload: ExerciseInputSchema):
     Exercise.objects.filter(pk=exercise_id).update(**payload.dict(exclude_none=True))
     return {"Success": True}
@@ -48,7 +48,11 @@ def delete_exercise(request, tasks_id: int):
     return {"sucess": True}
 
 
-@api.get("/exercises/{exercise_id}/progressions", response=List[ProgressionSchema], tags=["progression"])
+@api.get(
+    "/exercises/{exercise_id}/progressions",
+    response=List[ProgressionSchema],
+    tags=["progression"],
+)
 def progressions(request: WSGIRequest, exercise_id: int):
     return Progression.objects.annotate(exercise_name=F("exercise__name")).filter(
         exercise_id=exercise_id,
