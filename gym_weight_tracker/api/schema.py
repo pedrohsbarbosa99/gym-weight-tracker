@@ -2,6 +2,7 @@ from ninja import Schema
 from ninja import ModelSchema
 from datetime import date
 from gym_weight_tracker.core.models import Exercise
+from ninja.errors import HttpError
 
 
 class ExerciseSchema(ModelSchema):
@@ -9,9 +10,15 @@ class ExerciseSchema(ModelSchema):
         model = Exercise
         model_fields = "__all__"
 
+    def validate_name(self, value: str):
+        if Exercise.objects.filter(name=value).exists():
+            raise HttpError(400, "Este nome já está sendo usado.")
 
-class ExerciseInputSchema(Schema):
-    name: str
+
+class ExerciseInputSchema(ModelSchema):
+    class Config:
+        model = Exercise
+        model_fields = ["name"]
 
 
 class ProgressionInputSchema(Schema):
