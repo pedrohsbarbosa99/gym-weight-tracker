@@ -1,24 +1,23 @@
 from ninja import Schema
-from ninja import ModelSchema
 from datetime import date
 from gym_weight_tracker.core.models import Exercise
 from ninja.errors import HttpError
 
+from pydantic import validator
 
-class ExerciseSchema(ModelSchema):
-    class Config:
-        model = Exercise
-        model_fields = "__all__"
 
-    def validate_name(self, value: str):
-        if Exercise.objects.filter(name=value).exists():
+class ExerciseSchema(Schema):
+    name: str
+
+
+class ExerciseInputSchema(Schema):
+    name: str
+
+    @validator("name")
+    def validate_name(cls, v):
+        if Exercise.objects.filter(name=v).exists():
             raise HttpError(400, "Este nome já está sendo usado.")
-
-
-class ExerciseInputSchema(ModelSchema):
-    class Config:
-        model = Exercise
-        model_fields = ["name"]
+        return v
 
 
 class ProgressionInputSchema(Schema):
