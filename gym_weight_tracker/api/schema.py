@@ -7,6 +7,7 @@ from pydantic import validator
 
 
 class ExerciseSchema(Schema):
+    id: int
     name: str
 
 

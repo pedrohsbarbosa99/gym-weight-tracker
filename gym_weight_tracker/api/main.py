@@ -68,3 +68,12 @@ def progression_create(request: WSGIRequest, payload: ProgressionInputSchema):
     progression.save()
 
     return progression
+
+
+@api.get("/taco", tags=["taco"])
+def taco(request: WSGIRequest):
+    import json
+
+    with open("gym_weight_tracker/taco.json") as json_data:
+        data = json.load(json_data)
+        return data

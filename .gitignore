@@ -1,6 +1,7 @@
 .idea/
 *.sqlite3
 __pycache__
+venv
 .venv
 .env
 .vscode/settings.json
