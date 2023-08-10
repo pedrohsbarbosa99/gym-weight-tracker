@@ -48,6 +48,7 @@ def get_progressions(request: WSGIRequest):
 
     queryset = Exercise.objects.annotate(
         last_weight=Subquery(latest_progressions.values("weight")[:1]),
+        old_last_weight=Subquery(latest_progressions.values("weight")[1:2]),
         last_date=latest_progressions.values("created_at")[:1],
     ).exclude(last_weight=None)[:10]
 
