@@ -1,5 +1,5 @@
 from ninja import Schema
-from datetime import date
+from datetime import datetime
 
 
 class ProgressionInputSchema(Schema):
@@ -11,4 +11,4 @@ class ProgressionSchema(Schema):
     id: int = None
     exercise_name: str = None
     weight: int
-    created_at: date = None
+    created_at: datetime = None
