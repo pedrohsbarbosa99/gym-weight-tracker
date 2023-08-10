@@ -1,34 +1,9 @@
-import django
 from ninja import Schema
 from ninja_extra import ControllerBase, api_controller, http_post
 from ninja_extra.permissions import AllowAny
 
 from ninja_jwt.schema_control import SchemaControl
 from ninja_jwt.settings import api_settings
-
-exports = [
-    "TokenVerificationController",
-    "TokenBlackListController",
-    "TokenObtainPairController",
-    "TokenObtainSlidingController",
-    "TokenObtainSlidingController",
-    "NinjaJWTDefaultController",
-    "NinjaJWTSlidingController",
-]
-
-if not django.VERSION < (3, 1):
-    exports += [
-        "AsyncTokenVerificationController",
-        "AsyncTokenBlackListController",
-        "AsyncTokenObtainPairController",
-        "AsyncTokenObtainSlidingController",
-        "AsyncTokenObtainSlidingController",
-        "AsyncNinjaJWTDefaultController",
-        "AsyncNinjaJWTSlidingController",
-    ]
-
-__all__ = exports
-
 
 schema = SchemaControl(api_settings)
 
