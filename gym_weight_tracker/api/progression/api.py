@@ -29,7 +29,7 @@ def progressions(request: WSGIRequest, exercise_id: int):
 def get_last_progressions(request: WSGIRequest):
     progressions = Progression.objects.filter(user=request.user).annotate(
         exercise_name=F("exercise__name"),
-    )[:1]
+    )[:10]
 
     return progressions
 
