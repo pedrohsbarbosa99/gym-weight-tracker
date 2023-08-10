@@ -1,3 +1,4 @@
+from .filters import ExerciseFilterSchema
 from .schema import ExerciseInputSchema, ExerciseSchema
 from typing import List
 from django.core.handlers.wsgi import WSGIRequest
@@ -5,14 +6,20 @@ from gym_weight_tracker.core.models import Exercise
 from django.shortcuts import get_object_or_404
 from ninja import Router
 from ninja.pagination import paginate
+from ninja import Query
 
 exercise_router = Router()
 
 
 @exercise_router.get("", response=List[ExerciseSchema])
 @paginate
-def exercises(request: WSGIRequest):
-    return Exercise.objects.all()
+def exercises(
+    request: WSGIRequest,
+    filters: ExerciseFilterSchema = Query(...),
+):
+    exercises = Exercise.objects.all()
+    exercises = filters.filter(exercises)
+    return exercises
 
 
 @exercise_router.patch("/{exercise_id}")
