@@ -30,7 +30,7 @@ def get_exercise_progressions(request: WSGIRequest, exercise_id: int):
 )
 @paginate
 def get_progressions(request: WSGIRequest):
-    progressions = Progression.objects.filter(user=request.user).annotate(
+    progressions = request.user.allowed_progressions().annotate(
         exercise_name=F("exercise__name"),
     )
 
@@ -42,9 +42,13 @@ def get_progressions(request: WSGIRequest):
     response=List[LastProgressionSchema],
 )
 def get_progressions(request: WSGIRequest):
-    latest_progressions = Progression.objects.filter(
-        exercise_id=OuterRef("id")
-    ).order_by("-created_at")
+    latest_progressions = (
+        request.user.allowed_progressions()
+        .filter(
+            exercise_id=OuterRef("id"),
+        )
+        .order_by("-created_at")
+    )
 
     queryset = Exercise.objects.annotate(
         last_weight=Subquery(latest_progressions.values("weight")[:1]),

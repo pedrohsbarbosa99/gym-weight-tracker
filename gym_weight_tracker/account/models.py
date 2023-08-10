@@ -9,6 +9,8 @@ from django.core import validators
 from django.utils.translation import gettext_lazy as _
 import re
 
+from gym_weight_tracker.core.models import Progression
+
 
 class UserManager(BaseUserManager):
     def _create_user(
@@ -79,3 +81,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username", "first_name", "last_name"]
     objects = UserManager()
+
+    def allowed_progressions(self):
+        return Progression.objects.filter(user=self)
