@@ -4,11 +4,13 @@ from django.core.handlers.wsgi import WSGIRequest
 from gym_weight_tracker.core.models import Exercise
 from django.shortcuts import get_object_or_404
 from ninja import Router
+from ninja.pagination import paginate
 
 exercise_router = Router()
 
 
 @exercise_router.get("", response=List[ExerciseSchema])
+@paginate
 def exercises(request: WSGIRequest):
     return Exercise.objects.all()
 

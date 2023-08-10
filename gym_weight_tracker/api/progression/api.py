@@ -5,6 +5,7 @@ from gym_weight_tracker.core.models import Exercise, Progression
 from django.shortcuts import get_object_or_404
 from ninja import Router
 from django.db.models import F
+from ninja.pagination import paginate
 
 progression_router = Router()
 
@@ -13,7 +14,8 @@ progression_router = Router()
     "/exercises/{exercise_id}/progressions",
     response=List[ProgressionSchema],
 )
-def progressions(request: WSGIRequest, exercise_id: int):
+@paginate
+def get_exercise_progressions(request: WSGIRequest, exercise_id: int):
     return Progression.objects.annotate(
         exercise_name=F("exercise__name"),
     ).filter(
@@ -23,13 +25,14 @@ def progressions(request: WSGIRequest, exercise_id: int):
 
 
 @progression_router.get(
-    "/last-progessions",
+    "/progessions",
     response=List[ProgressionSchema],
 )
-def get_last_progressions(request: WSGIRequest):
+@paginate
+def get_progressions(request: WSGIRequest):
     progressions = Progression.objects.filter(user=request.user).annotate(
         exercise_name=F("exercise__name"),
-    )[:10]
+    )
 
     return progressions
 
