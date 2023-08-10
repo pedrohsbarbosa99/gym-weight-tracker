@@ -12,3 +12,9 @@ class ProgressionSchema(Schema):
     exercise_name: str = None
     weight: int
     created_at: datetime = None
+
+
+class LastProgressionSchema(Schema):
+    name: str
+    last_weight: int = None
+    last_date: datetime = None

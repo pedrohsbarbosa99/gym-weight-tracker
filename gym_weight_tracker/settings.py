@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "ninja_jwt",
+    "django_extensions",
     "ninja_extra",
     "gym_weight_tracker.core",
     "gym_weight_tracker.account",
