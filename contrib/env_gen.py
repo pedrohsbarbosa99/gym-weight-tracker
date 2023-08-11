@@ -11,9 +11,9 @@ DEBUG=True
 SECRET_KEY=%s
 ALLOWED_HOSTS=127.0.0.1, .localhost
 CORS_ALLOWED_ORIGINS=http://localhost:3000
-DATABASE_URL=postgres://postgres:postgres@0.0.0.0:5433/db
+DATABASE_URL=cockroach://root@db:26257/defaultdb
 """.strip() % get_random_string(
-    50, chars
+    50, chars,
 )
 
 # Writing our configuration file to '.env'
