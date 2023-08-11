@@ -39,7 +39,12 @@ pip install -r requirements.txt
 
 python contrib/env_gen.py
 
-5. Run the development server:
+5. Create postgres db and loaddata
+
+docker-compose up db
+./manage.py loaddata contrib/db_data.json
+
+6. Run the development server:
 
 python manage.py runserver
 
