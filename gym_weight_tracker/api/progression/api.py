@@ -14,11 +14,14 @@ progression_router = RouterPaginated()
     response=List[ProgressionSchema],
 )
 def get_exercise_progressions(request: WSGIRequest, exercise_id: int):
-    return Progression.objects.annotate(
-        exercise_name=F("exercise__name"),
-    ).filter(
-        exercise_id=exercise_id,
-        user=request.user,
+    return (
+        request.user.allowed_progressions()
+        .filter(
+            exercise_id=exercise_id,
+        )
+        .annotate(
+            exercise_name=F("exercise__name"),
+        )
     )
 
 

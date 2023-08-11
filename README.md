@@ -35,7 +35,11 @@ source myenv/bin/activate
 
 pip install -r requirements.txt
 
-4. Run the development server:
+4. Create .env
+
+python contrib/env_gen.py
+
+5. Run the development server:
 
 python manage.py runserver
 
