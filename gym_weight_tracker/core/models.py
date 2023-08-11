@@ -13,7 +13,7 @@ class Muscle(models.Model):
 
 class Exercise(models.Model):
     DIFFICULTY_CHOICES = [
-        ("Easy", "Fácil"),
+        ("easy", "Fácil"),
         ("medium", "Médio"),
         ("hard", "Difícil"),
     ]
