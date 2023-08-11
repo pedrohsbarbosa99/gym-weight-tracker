@@ -20,7 +20,10 @@ class Exercise(models.Model):
     name = models.CharField(max_length=255, unique=True, db_index=True)
     description = models.TextField(blank=True)
     muscle = models.ForeignKey(
-        Muscle, on_delete=models.CASCADE, related_name="exercises", null=True
+        Muscle,
+        on_delete=models.CASCADE,
+        related_name="exercises",
+        null=True,
     )
     difficulty_level = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
