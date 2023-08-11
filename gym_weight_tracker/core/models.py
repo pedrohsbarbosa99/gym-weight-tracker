@@ -1,8 +1,31 @@
 from django.db import models
+from django.utils import timezone
+
+
+class Muscle(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Exercise(models.Model):
+    DIFFICULTY_CHOICES = [
+        ("Easy", "Fácil"),
+        ("medium", "Médio"),
+        ("hard", "Difícil"),
+    ]
     name = models.CharField(max_length=255, unique=True, db_index=True)
+    description = models.TextField(blank=True)
+    muscle = models.ForeignKey(
+        Muscle, on_delete=models.CASCADE, related_name="exercises", null=True
+    )
+    difficulty_level = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
