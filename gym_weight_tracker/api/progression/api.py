@@ -3,18 +3,16 @@ from typing import List
 from django.core.handlers.wsgi import WSGIRequest
 from gym_weight_tracker.core.models import Exercise, Progression
 from django.shortcuts import get_object_or_404
-from ninja import Router
 from django.db.models import F, OuterRef, Subquery
-from ninja.pagination import paginate
+from ninja.pagination import RouterPaginated
 
-progression_router = Router()
+progression_router = RouterPaginated()
 
 
 @progression_router.get(
     "/exercises/{exercise_id}/progressions",
     response=List[ProgressionSchema],
 )
-@paginate
 def get_exercise_progressions(request: WSGIRequest, exercise_id: int):
     return Progression.objects.annotate(
         exercise_name=F("exercise__name"),
@@ -28,7 +26,6 @@ def get_exercise_progressions(request: WSGIRequest, exercise_id: int):
     "/progessions",
     response=List[ProgressionSchema],
 )
-@paginate
 def get_progressions(request: WSGIRequest):
     progressions = request.user.allowed_progressions().annotate(
         exercise_name=F("exercise__name"),
@@ -54,7 +51,7 @@ def get_progressions(request: WSGIRequest):
         last_weight=Subquery(latest_progressions.values("weight")[:1]),
         old_last_weight=Subquery(latest_progressions.values("weight")[1:2]),
         last_date=latest_progressions.values("created_at")[:1],
-    ).exclude(last_weight=None)[:10]
+    ).exclude(last_weight=None)
 
     return queryset
 
