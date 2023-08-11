@@ -2,13 +2,13 @@
 
 if [ true ]
 then
-    echo "Waiting for postgres..."
+    echo "Waiting for cockroach..."
 
     while ! nc -z db 26257; do
       sleep 0.1
     done
 
-    echo "PostgreSQL started"
+    echo "CockroachDB started"
 fi
 
 python manage.py flush --no-input
