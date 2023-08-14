@@ -21,7 +21,7 @@ def fix_initial_data(apps, schema_editor):
             Food.objects.get_or_create(
                 id=item["id"],
                 kcal=item["nutrients"]["kcal"],
-                kJ=item["nutrients"]["kJ"],
+                kj=item["nutrients"]["kJ"],
                 protein=item["nutrients"]["protein"],
                 carbohydrates=item["nutrients"]["carbohydrates"],
                 defaults={"name": item["name"], "category": category},
