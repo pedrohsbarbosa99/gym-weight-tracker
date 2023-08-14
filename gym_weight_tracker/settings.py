@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "ninja_extra",
     "gym_weight_tracker.core",
     "gym_weight_tracker.account",
+    "gym_weight_tracker.nutrition",
 ]
 
 MIDDLEWARE = [

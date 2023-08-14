@@ -39,21 +39,27 @@
         "model": "core.exercise",
         "pk": 889750025563045889,
         "fields": {
-            "name": "Supino Reto"
+            "name": "Supino Reto",
+            "created_at": "2023-08-10T18:29:17.352Z",
+            "updated_at": "2023-08-10T18:29:17.352Z"
         }
     },
     {
         "model": "core.exercise",
         "pk": 889779376307634177,
         "fields": {
-            "name": "Supino Inclinado"
+            "name": "Supino Inclinado",
+            "created_at": "2023-08-10T18:29:17.352Z",
+            "updated_at": "2023-08-10T18:29:17.352Z"
         }
     },
     {
         "model": "core.exercise",
         "pk": 890077544106328065,
         "fields": {
-            "name": "Elevação lateral"
+            "name": "Elevação lateral",
+            "created_at": "2023-08-10T18:29:17.352Z",
+            "updated_at": "2023-08-10T18:29:17.352Z"
         }
     },
     {

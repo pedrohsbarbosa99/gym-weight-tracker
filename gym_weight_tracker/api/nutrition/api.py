@@ -1,10 +1,10 @@
 from django.core.handlers.wsgi import WSGIRequest
 from ninja import Router
 
-food_router = Router()
+nutrition_router = Router()
 
 
-@food_router.get("/taco")
+@nutrition_router.get("/taco")
 def taco(request: WSGIRequest):
     import json
 
