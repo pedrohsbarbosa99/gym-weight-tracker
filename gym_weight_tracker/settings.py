@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "ninja_jwt",
+    "debug_toolbar",
     "django_extensions",
     "ninja_extra",
     "gym_weight_tracker.core",
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -64,6 +66,10 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = ["https://*.ngrok-free.app"]
 CSRF_TRUSTED_ORIGINS = [
     "https://*.ngrok-free.app",
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 ROOT_URLCONF = "gym_weight_tracker.urls"

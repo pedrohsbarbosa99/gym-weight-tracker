@@ -10,18 +10,11 @@ class Category(models.Model):
 
 class Food(models.Model):
     name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-
-class Nutrient(models.Model):
     kcal = models.FloatField(null=True)
     kJ = models.FloatField(null=True)
     protein = models.FloatField(null=True)
     carbohydrates = models.FloatField(null=True)
-    food = models.OneToOneField(Food, on_delete=models.CASCADE, primary_key=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.food.name} - Nutrients"
+        return self.name

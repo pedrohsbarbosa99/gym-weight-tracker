@@ -5,6 +5,7 @@ from gym_weight_tracker.api.nutrition.schema import FoodItem
 from gym_weight_tracker.nutrition.models import Food
 from ninja import Query
 from typing import List
+from django.db.models import F
 
 nutrition_router = RouterPaginated()
 
@@ -14,6 +15,6 @@ def get_taco(
     request: WSGIRequest,
     filters: FoodFilterSchema = Query(...),
 ):
-    foods = Food.objects.all()
+    foods = Food.objects.annotate(category_name=F("category__name"))
     foods = filters.filter(foods)
     return foods
