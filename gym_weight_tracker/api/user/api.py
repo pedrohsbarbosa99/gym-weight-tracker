@@ -1,6 +1,7 @@
-from .schema import UserSchema
 from django.core.handlers.wsgi import WSGIRequest
 from ninja import Router
+
+from .schema import UserSchema
 
 user_router = Router()
 

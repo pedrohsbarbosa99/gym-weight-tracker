@@ -4,15 +4,17 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0006_muscle_exercise_created_at_exercise_description_and_more'),
+        ("core", "0006_muscle_exercise_created_at_exercise_description_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='exercise',
-            name='difficulty_level',
-            field=models.CharField(choices=[('easy', 'Fácil'), ('medium', 'Médio'), ('hard', 'Difícil')], max_length=20),
+            model_name="exercise",
+            name="difficulty_level",
+            field=models.CharField(
+                choices=[("easy", "Fácil"), ("medium", "Médio"), ("hard", "Difícil")],
+                max_length=20,
+            ),
         ),
     ]

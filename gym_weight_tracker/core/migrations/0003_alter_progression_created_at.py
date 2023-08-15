@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0002_alter_exercise_name'),
+        ("core", "0002_alter_exercise_name"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='progression',
-            name='created_at',
+            model_name="progression",
+            name="created_at",
             field=models.DateField(auto_now_add=True, db_index=True),
         ),
     ]

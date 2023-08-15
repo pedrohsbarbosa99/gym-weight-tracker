@@ -1,11 +1,14 @@
+from typing import List
+
+from django.core.handlers.wsgi import WSGIRequest
+from django.shortcuts import get_object_or_404
+from ninja import Query
+from ninja.pagination import RouterPaginated
+
+from gym_weight_tracker.core.models import Exercise
+
 from .filters import ExerciseFilterSchema
 from .schema import ExerciseInputSchema, ExerciseSchema
-from typing import List
-from django.core.handlers.wsgi import WSGIRequest
-from gym_weight_tracker.core.models import Exercise
-from django.shortcuts import get_object_or_404
-from ninja.pagination import RouterPaginated
-from ninja import Query
 
 exercise_router = RouterPaginated()
 
