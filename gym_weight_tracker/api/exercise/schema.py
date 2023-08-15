@@ -10,7 +10,9 @@ class ExerciseSchema(Schema):
 
 
 class ExerciseInputSchema(Schema):
-    name: str
+    name: str = None
+    description: str = None
+    difficulty_level: str = None
 
     @validator("name")
     def validate_name(cls, v):
