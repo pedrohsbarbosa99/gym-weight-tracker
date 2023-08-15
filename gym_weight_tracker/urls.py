@@ -15,9 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import RedirectView
-
 from gym_weight_tracker.api.main import api
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path("", RedirectView.as_view(url="/api/docs", permanent=True)),

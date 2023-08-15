@@ -1,14 +1,13 @@
-import re
-
-from django.contrib.auth.models import (
-    AbstractBaseUser,
-    BaseUserManager,
-    PermissionsMixin,
-)
-from django.core import validators
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    PermissionsMixin,
+    BaseUserManager,
+)
+from django.core import validators
 from django.utils.translation import gettext_lazy as _
+import re
 
 from gym_weight_tracker.core.models import Progression
 

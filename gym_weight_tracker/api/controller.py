@@ -1,6 +1,7 @@
 from ninja import Schema
 from ninja_extra import ControllerBase, api_controller, http_post
 from ninja_extra.permissions import AllowAny
+
 from ninja_jwt.schema_control import SchemaControl
 from ninja_jwt.settings import api_settings
 

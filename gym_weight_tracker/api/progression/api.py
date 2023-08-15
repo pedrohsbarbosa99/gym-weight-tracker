@@ -1,13 +1,10 @@
+from .schema import ProgressionInputSchema, ProgressionSchema, LastProgressionSchema
 from typing import List
-
 from django.core.handlers.wsgi import WSGIRequest
-from django.db.models import F, OuterRef, Subquery
-from django.shortcuts import get_object_or_404
-from ninja.pagination import RouterPaginated
-
 from gym_weight_tracker.core.models import Exercise, Progression
-
-from .schema import LastProgressionSchema, ProgressionInputSchema, ProgressionSchema
+from django.shortcuts import get_object_or_404
+from django.db.models import F, OuterRef, Subquery
+from ninja.pagination import RouterPaginated
 
 progression_router = RouterPaginated()
 
