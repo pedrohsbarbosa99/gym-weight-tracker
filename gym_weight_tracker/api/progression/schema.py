@@ -17,6 +17,7 @@ class ProgressionSchema(Schema):
 
 class LastProgressionSchema(Schema):
     name: str
+    exercise_id: int
     last_weight: int = None
     old_last_weight: int = None
     last_date: datetime = None
