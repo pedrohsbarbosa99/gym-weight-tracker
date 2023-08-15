@@ -57,6 +57,7 @@ def get_progressions(request: WSGIRequest):
         last_weight=Subquery(latest_progressions.values("weight")[:1]),
         old_last_weight=Subquery(latest_progressions.values("weight")[1:2]),
         last_date=latest_progressions.values("created_at")[:1],
+        exercise_id=F("id"),
     ).exclude(last_weight=None)
 
     return queryset
