@@ -1,5 +1,6 @@
-from ninja import FilterSchema, Field
 from typing import Optional
+
+from ninja import Field, FilterSchema
 
 
 class FoodFilterSchema(FilterSchema):

@@ -1,5 +1,6 @@
-from ninja import Schema
 from datetime import datetime
+
+from ninja import Schema
 
 
 class ProgressionInputSchema(Schema):

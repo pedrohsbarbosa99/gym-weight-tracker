@@ -1,7 +1,8 @@
-from gym_weight_tracker.core.models import Exercise
-from ninja.errors import HttpError
 from ninja import Schema
+from ninja.errors import HttpError
 from pydantic import validator
+
+from gym_weight_tracker.core.models import Exercise
 
 
 class ExerciseSchema(Schema):
