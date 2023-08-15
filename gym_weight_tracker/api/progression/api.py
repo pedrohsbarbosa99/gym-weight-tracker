@@ -44,7 +44,7 @@ def get_progressions(request: WSGIRequest):
     "/last-progressions",
     response=List[LastProgressionSchema],
 )
-def get_progressions(request: WSGIRequest):
+def get_last_progressions(request: WSGIRequest):
     latest_progressions = (
         request.user.allowed_progressions()
         .filter(
@@ -58,6 +58,7 @@ def get_progressions(request: WSGIRequest):
         old_last_weight=Subquery(latest_progressions.values("weight")[1:2]),
         last_date=latest_progressions.values("created_at")[:1],
         exercise_id=F("id"),
+        exercise_name=F("name"),
     ).exclude(last_weight=None)
 
     return queryset
