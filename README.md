@@ -5,6 +5,8 @@
 <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/>
 <img src="https://cdn.worldvectorlogo.com/logos/cockroachdb.svg" alt="cockroachdb" width="40" height="40"/>
 
+##
+
 This is a Django project for an API that controls weight progression in gym exercises and tracks users' evolution.
 
 ## System Requirements
