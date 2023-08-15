@@ -33,7 +33,7 @@ source myenv/bin/activate
 
 3. Install the dependencies:
 
-pip install -r requirements.txt
+pip install -r requirements-dev.txt && pre-commit install
 
 4. Create .env
 
