@@ -31,7 +31,7 @@ def create_exercise(request, payload: ExerciseInputSchema):
     return Exercise.objects.create(**payload.dict())
 
 
-@exercise_router.delete("/{exercise_id}", response=ExerciseSchema)
+@exercise_router.delete("/{exercise_id}")
 def delete_exercise(request, exercise_id: int):
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise.delete()
