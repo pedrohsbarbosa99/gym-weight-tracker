@@ -8,7 +8,7 @@ from gym_weight_tracker.api.user.api import user_router
 
 from .controller import NinjaJWTDefaultController
 
-api = NinjaExtraAPI(title="Light Weight Baby", auth=JWTAuth(), version="0.0.2")
+api = NinjaExtraAPI(title="Light Weight Baby", auth=JWTAuth(), version="0.0.3")
 api.add_router("/users", user_router, tags=["users"])
 api.add_router("/exercises", exercise_router, tags=["exercises"])
 api.add_router("", progression_router, tags=["progressions"])
