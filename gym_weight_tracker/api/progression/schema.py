@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from ninja import Field, Schema
+from ninja import Schema
 
 
 class ProgressionInputSchema(Schema):
@@ -16,7 +16,6 @@ class ProgressionSchema(Schema):
 
 
 class LastProgressionSchema(Schema):
-    name: str
     exercise_id: int
     exercise_name: str
     last_weight: int = None
