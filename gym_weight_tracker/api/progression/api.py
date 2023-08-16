@@ -2,7 +2,6 @@ from typing import List
 
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import F, OuterRef, Subquery
-from django.shortcuts import get_object_or_404
 from ninja.pagination import RouterPaginated
 
 from gym_weight_tracker.core.models import Exercise, Progression
@@ -66,10 +65,10 @@ def get_last_progressions(request: WSGIRequest):
 
 @progression_router.post(
     "/progressions/",
+    response=ProgressionSchema,
 )
 def progression_create(request: WSGIRequest, payload: ProgressionInputSchema):
-    Progression.objects.create(
+    return Progression.objects.create(
         **payload.dict(),
         user=request.user,
     )
-    return {}
