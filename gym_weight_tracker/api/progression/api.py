@@ -69,13 +69,4 @@ def get_last_progressions(request: WSGIRequest):
     response=ProgressionSchema,
 )
 def progression_create(request: WSGIRequest, payload: ProgressionInputSchema):
-    exercise = get_object_or_404(Exercise, id=payload.exercise_id)
-
-    progression = Progression(
-        user=request.user,
-        exercise=exercise,
-        weight=payload.weight,
-    )
-    progression.save()
-
-    return progression
+    return Progression.objects.create(**payload.dict())
