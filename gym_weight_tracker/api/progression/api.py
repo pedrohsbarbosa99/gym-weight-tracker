@@ -69,4 +69,7 @@ def get_last_progressions(request: WSGIRequest):
     response=ProgressionSchema,
 )
 def progression_create(request: WSGIRequest, payload: ProgressionInputSchema):
-    return Progression.objects.create(**payload.dict())
+    return Progression.objects.create(
+        **payload.dict(),
+        user=request.user,
+    )
