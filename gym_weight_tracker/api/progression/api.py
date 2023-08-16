@@ -65,7 +65,7 @@ def get_last_progressions(request: WSGIRequest):
 
 
 @progression_router.post(
-    "/progressions",
+    "/progressions/",
     response=ProgressionSchema,
 )
 def progression_create(request: WSGIRequest, payload: ProgressionInputSchema):
