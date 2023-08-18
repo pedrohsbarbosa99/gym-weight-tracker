@@ -24,7 +24,7 @@ def exercises(
 
 
 @exercise_router.patch("/{exercise_id}")
-def update_exercise(request, exercise_id: int, payload: ExerciseInputSchema):
+def update_exercise(request, exercise_id: str, payload: ExerciseInputSchema):
     Exercise.objects.filter(pk=exercise_id).update(**payload.dict(exclude_none=True))
     return {"Success": True}
 
@@ -35,7 +35,7 @@ def create_exercise(request, payload: ExerciseInputSchema):
 
 
 @exercise_router.delete("/{exercise_id}")
-def delete_exercise(request, exercise_id: int):
+def delete_exercise(request, exercise_id: str):
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise.delete()
     return {"sucess": True}

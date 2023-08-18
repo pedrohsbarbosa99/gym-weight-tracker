@@ -6,7 +6,7 @@ from gym_weight_tracker.core.models import Exercise
 
 
 class ExerciseSchema(Schema):
-    id: int
+    id: str
     name: str
     description: str = ""
     difficulty_level: str
