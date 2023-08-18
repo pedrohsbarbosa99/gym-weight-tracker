@@ -2,10 +2,7 @@
   "builds": [
     {
       "src": "gym_weight_tracker/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.11.0"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
