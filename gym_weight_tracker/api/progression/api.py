@@ -15,7 +15,7 @@ progression_router = RouterPaginated()
     "/exercises/{exercise_id}/progressions",
     response=List[ProgressionSchema],
 )
-def get_exercise_progressions(request: WSGIRequest, exercise_id: int):
+def get_exercise_progressions(request: WSGIRequest, exercise_id: str):
     return (
         request.user.allowed_progressions()
         .filter(

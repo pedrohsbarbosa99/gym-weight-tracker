@@ -2,7 +2,7 @@ from ninja import Schema
 
 
 class FoodItem(Schema):
-    id: int
+    id: str
     name: str
     kcal: float = None
     kj: float = None

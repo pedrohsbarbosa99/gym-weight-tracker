@@ -8,7 +8,7 @@ from gym_weight_tracker.core.models import Exercise
 
 
 class ProgressionInputSchema(Schema):
-    exercise_id: int
+    exercise_id: str
     weight: int
 
     @validator("exercise_id")
@@ -18,14 +18,14 @@ class ProgressionInputSchema(Schema):
 
 
 class ProgressionSchema(Schema):
-    id: int = None
+    id: str = None
     exercise_name: str = None
     weight: int
     created_at: datetime = None
 
 
 class LastProgressionSchema(Schema):
-    exercise_id: int
+    exercise_id: str
     exercise_name: str
     last_weight: int = None
     old_last_weight: int = None
