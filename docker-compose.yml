@@ -11,7 +11,7 @@ services:
     env_file:
       - ./.env
     depends_on:
-        - db
+      - db
 
   db:
     image: cockroachdb/cockroach:v22.2.13

@@ -2,3 +2,4 @@
 pytest
 pytest-django
 pre-commit
+ipython

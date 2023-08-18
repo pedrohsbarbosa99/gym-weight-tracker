@@ -48,6 +48,11 @@ docker-compose up db
 
 python manage.py runserver
 
+7. User for tests
+
+EMAIL: admin@admin.com
+PASSWD: 123
+
 ## Endpoints/APIs
 
 All available endpoints/APIs can be accessed through Swagger, accessible at `/api/docs`.
