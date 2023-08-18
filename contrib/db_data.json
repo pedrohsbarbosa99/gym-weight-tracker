@@ -6,31 +6,13 @@
             "password": "pbkdf2_sha256$390000$h3VVuCXooG0Ffr75YwDHqc$hx4zSqcQOtapWi1Ng8TBYbeRFLeHhq7a+vKa4xe5hko=",
             "last_login": "2023-08-09T17:01:13.229Z",
             "is_superuser": true,
-            "username": "pedro.barbosa",
+            "username": "admin.admin",
             "first_name": "Pedro",
             "last_name": "Barbosa",
-            "email": "pedro@gmail.com",
+            "email": "admin@admin.com",
             "is_staff": true,
             "is_active": true,
             "date_joined": "2023-08-09T17:01:13.229Z",
-            "groups": [],
-            "user_permissions": []
-        }
-    },
-    {
-        "model": "account.user",
-        "pk": 889749821238345729,
-        "fields": {
-            "password": "pbkdf2_sha256$390000$QykCqBsuf5bv80HqpCjnTr$lA++p0GC/lFdEhEtT2JTS1fxUQ+zuBteyqxlJKnQgSY=",
-            "last_login": "2023-08-09T17:01:36.601Z",
-            "is_superuser": true,
-            "username": "wildes.piva",
-            "first_name": "Wildes",
-            "last_name": "Piva",
-            "email": "wildes@gmail.com",
-            "is_staff": true,
-            "is_active": true,
-            "date_joined": "2023-08-09T17:01:36.601Z",
             "groups": [],
             "user_permissions": []
         }
