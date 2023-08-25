@@ -37,7 +37,7 @@ class Progression(models.Model):
     user = models.ForeignKey("account.User", on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     weight = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["created_at", "-weight"]
