@@ -1,1 +1,0 @@
-web: gunicorn gym_weight_tracker.wsgi --log-file -
