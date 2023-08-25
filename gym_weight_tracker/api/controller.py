@@ -36,6 +36,7 @@ class TokenObtainPairController(ControllerBase):
         "/refresh",
         response=schema.obtain_pair_refresh_schema.get_response_schema(),
         url_name="token_refresh",
+        auth=None,
     )
     def refresh_token(self, refresh_token: schema.obtain_pair_refresh_schema):
         return refresh_token.to_response_schema()
