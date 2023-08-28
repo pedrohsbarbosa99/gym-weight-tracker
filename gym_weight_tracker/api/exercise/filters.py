@@ -1,11 +1,11 @@
 from typing import Optional
 from django.contrib.postgres.search import TrigramSimilarity
 from django.db.models import QuerySet
-from ninja import FilterSchema
+from ninja import Field, FilterSchema
 
 
 class ExerciseFilterSchema(FilterSchema):
-    search: Optional[str]
+    search: Optional[str] = Field(q=["name__unaccent__trigram_similar"])
 
     def filter(self, queryset: QuerySet) -> QuerySet:
         if self.search:
