@@ -14,6 +14,6 @@ class ExerciseFilterSchema(FilterSchema):
             )
             return queryset.filter(
                 self.get_filter_expression(),
-                similarity__gte=0.5,
+                similarity__gte=0.6,
             ).order_by("-similarity")
         return queryset.filter(self.get_filter_expression())
