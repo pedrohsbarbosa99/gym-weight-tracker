@@ -13,6 +13,7 @@ class ExerciseFilterSchema(FilterSchema):
                 similarity=TrigramSimilarity("name", self.search)
             )
             return queryset.filter(
-                self.get_filter_expression(), similarity__gte=0.5
+                self.get_filter_expression(),
+                similarity__gte=0.5,
             ).order_by("-similarity")
         return queryset.filter(self.get_filter_expression())
