@@ -12,5 +12,5 @@ class ExerciseFilterSchema(FilterSchema):
             queryset = queryset.annotate(
                 similarity=TrigramSimilarity("name", self.search)
             )
-            return queryset.filter(self.get_filter_expression(), similarity__gt=0.5)
+            return queryset.filter(self.get_filter_expression(), similarity__gte=0.5)
         return queryset.filter(self.get_filter_expression())
