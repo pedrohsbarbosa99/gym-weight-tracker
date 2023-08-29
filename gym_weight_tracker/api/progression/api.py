@@ -4,7 +4,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import F, OuterRef, Subquery
 from ninja.pagination import RouterPaginated
 
-from gym_weight_tracker.core.models import Progression
+from gym_weight_tracker.core.models import Exercise, Progression
 
 from .schema import (
     LastProgressionSchema,
@@ -51,16 +51,17 @@ def get_last_progressions(request: WSGIRequest):
     latest_progressions = (
         request.user.allowed_progressions()
         .filter(
-            exercise_id=OuterRef("exercise_id"),
+            exercise_id=OuterRef("id"),
         )
         .order_by("-created_at")
     )
 
-    queryset = Progression.objects.annotate(
+    queryset = Exercise.objects.annotate(
         last_weight=Subquery(latest_progressions.values("weight")[:1]),
         old_last_weight=Subquery(latest_progressions.values("weight")[1:2]),
         last_date=latest_progressions.values("created_at")[:1],
-        exercise_name=F("exercise__name"),
+        exercise_id=F("id"),
+        exercise_name=F("name"),
     ).exclude(last_weight=None)
 
     return queryset
