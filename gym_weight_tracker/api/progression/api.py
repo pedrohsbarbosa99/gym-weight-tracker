@@ -6,7 +6,11 @@ from ninja.pagination import RouterPaginated
 
 from gym_weight_tracker.core.models import Exercise, Progression
 
-from .schema import LastProgressionSchema, ProgressionInputSchema, ProgressionSchema
+from .schema import (
+    LastProgressionSchema,
+    ProgressionInputSchema,
+    ProgressionSchema,
+)
 
 progression_router = RouterPaginated()
 
