@@ -42,7 +42,7 @@ class Progression(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["-created_at", "-weight"]
+        ordering = ["-created_at"]
 
     def __str__(self):
         return f"{self.user.username} - {self.exercise.name} - {self.created_at:%d/%m/%y} - {self.weight} kg"
