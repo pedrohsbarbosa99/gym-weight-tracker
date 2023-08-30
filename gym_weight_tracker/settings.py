@@ -127,6 +127,7 @@ NINJA_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
 }
 
+OAUTH2_GOOGLE_URL = "https://www.googleapis.com/oauth2/v1"
 AUTH_USER_MODEL = "account.User"
 
 # Internationalization
