@@ -25,7 +25,9 @@ class Exercise(models.Model):
         related_name="exercises",
         null=True,
     )
-    difficulty_level = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
+    difficulty_level = models.CharField(
+        max_length=20, choices=DIFFICULTY_CHOICES
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -40,7 +42,7 @@ class Progression(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["created_at", "-weight"]
+        ordering = ["-created_at", "-weight"]
 
     def __str__(self):
         return f"{self.user.username} - {self.exercise.name} - {self.created_at:%d/%m/%y} - {self.weight} kg"
