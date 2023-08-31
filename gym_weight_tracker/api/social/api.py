@@ -1,11 +1,9 @@
-from django.contrib.auth.models import AnonymousUser
 from django.core.handlers.wsgi import WSGIRequest
-from ninja.errors import HttpError
 from ninja.router import Router
 from ninja_jwt.tokens import RefreshToken
 
-from .backends import validators
 from .schema import ConvertTokenSchema, Plataform, TokenSchema
+from .utils import import_social_validator
 
 social_router = Router()
 
@@ -20,10 +18,9 @@ def convert_token(
     plataform: Plataform,
     payload: ConvertTokenSchema,
 ):
-    user = validators[plataform](payload.token)
+    validator = import_social_validator(plataform)
+    user = validator.validate(payload.token)
 
-    if isinstance(user, AnonymousUser):
-        raise HttpError(400, "Token Invalido")
     refresh = RefreshToken.for_user(user)
 
     return {
