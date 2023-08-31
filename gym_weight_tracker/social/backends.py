@@ -28,7 +28,7 @@ class Google(Backend):
         response = self._get_token_info(access_token=token)
         if response.status_code == 200:
             return response.json()
-        raise HttpError(400, "Token Invalido")
+        return {}
 
     def validate(self, token):
         user_info = self._get_user_info(token)
