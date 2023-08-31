@@ -133,6 +133,10 @@ AUTH_USER_MODEL = "account.User"
 SOCIAL_VALIDATORS = {
     "google": "gym_weight_tracker.social.backends.Google",
 }
+
+FACEBOOK_APP_ID = config("FACEBOOK_APP_ID", default="")
+FACEBOOK_APP_SECRET = config("FACEBOOK_APP_SECRET", default="")
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
