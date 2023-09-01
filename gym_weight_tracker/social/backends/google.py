@@ -7,7 +7,7 @@ from .oauth import BaseBackendOAuth
 User = get_user_model()
 
 
-class Google(BaseBackendOAuth):
+class GoogleBackendOAuth(BaseBackendOAuth):
     def _token_info(self, **params):
         return requests.get(
             f"{settings.OAUTH2_GOOGLE_URL}/tokeninfo",

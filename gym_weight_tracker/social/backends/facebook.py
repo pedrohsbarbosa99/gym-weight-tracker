@@ -4,7 +4,7 @@ from django.conf import settings
 from .oauth import BaseBackendOAuth
 
 
-class FacebookAppOAuth(BaseBackendOAuth):
+class FacebookBackendOAuth(BaseBackendOAuth):
     app_id = settings.FACEBOOK_APP_ID
     app_secret = settings.FACEBOOK_APP_SECRET
 

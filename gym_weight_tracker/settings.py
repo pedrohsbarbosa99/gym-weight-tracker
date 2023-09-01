@@ -131,8 +131,8 @@ OAUTH2_GOOGLE_URL = "https://www.googleapis.com/oauth2/v1"
 AUTH_USER_MODEL = "account.User"
 
 SOCIAL_VALIDATORS = {
-    "google": "gym_weight_tracker.social.backends.Google",
-    "facebook": "gym_weight_tracker.social.backends.FacebookAppOAuth",
+    "google": "gym_weight_tracker.social.backends.google.GoogleBackendOAuth",
+    "facebook": "gym_weight_tracker.social.backends.facebook.FacebookAppOAuth",
 }
 
 FACEBOOK_APP_ID = config("FACEBOOK_APP_ID", default="")
