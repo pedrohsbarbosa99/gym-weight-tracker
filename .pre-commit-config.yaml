@@ -22,7 +22,7 @@ repos:
       - id: remove-print-statements
         args: ["--verbose"] # Show all the print statements to be removed
   - repo: https://github.com/hadialqattan/pycln
-    rev: v0.0.1-beta.3
+    rev: v2.2.2
     hooks:
       - id: pycln
         args: [--config=pyproject.toml]

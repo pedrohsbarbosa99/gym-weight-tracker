@@ -14,3 +14,4 @@ class TokenSchema(Schema):
 
 class Plataform(str, Enum):
     google = "google"
+    facebook = "facebook"

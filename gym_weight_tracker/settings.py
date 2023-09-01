@@ -132,6 +132,7 @@ AUTH_USER_MODEL = "account.User"
 
 SOCIAL_VALIDATORS = {
     "google": "gym_weight_tracker.social.backends.Google",
+    "google": "gym_weight_tracker.social.backends.FaceBook",
 }
 
 FACEBOOK_APP_ID = config("FACEBOOK_APP_ID", default="")
