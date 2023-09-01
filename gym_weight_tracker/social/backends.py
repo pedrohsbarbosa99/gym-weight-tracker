@@ -60,7 +60,7 @@ class FaceBook(Backend):
         if not is_valid_token:
             return {}
         params = {"access_token": token, "fields": "email"}
-        url = f"https://graph.facebook.token/v17.0/me"
+        url = f"https://graph.facebook.com/v17.0/me"
         response = requests.get(url, params=params)
         if response.status_code == 200:
             return response.json()
