@@ -14,7 +14,8 @@ class BaseBackendOAuth:
     def validate(self, token):
         response = self.get_token_reponse(token)
         user_info = self.get_user_details(response)
-        if email := user_info.get("email"):
-            if user := User.objects.filter(email=email).first():
+        if username := user_info.get(User.USERNAME_FIELD):
+            filters = {User.USERNAME_FIELD: username}
+            if user := User.objects.filter(**filters).first():
                 return user
         raise HttpError(400, "Token Invalido")
