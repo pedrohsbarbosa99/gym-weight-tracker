@@ -1,6 +1,6 @@
 from ninja import Schema
 from ninja.router import Router
-from ninja_jwt.schema import (
+from .schema import (
     TokenObtainPairInputSchema,
     TokenObtainPairOutputSchema,
     TokenRefreshInputSchema,
@@ -15,6 +15,7 @@ auth_router = Router()
     "/pair", response=TokenObtainPairOutputSchema, url_name="token_obtain_pair"
 )
 def obtain_token(request, user_token: TokenObtainPairInputSchema):
+    user_token.check_user_authentication_rule()
     return user_token.output_schema()
 
 
