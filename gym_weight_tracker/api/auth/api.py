@@ -1,31 +1,30 @@
 from ninja import Schema
 from ninja.router import Router
-from .schema import (
-    TokenObtainPairInputSchema,
-    TokenObtainPairOutputSchema,
-    TokenRefreshInputSchema,
-    TokenRefreshOutputSchema,
-    TokenVerifyInputSchema,
-)
+from ninja_jwt.schema_control import SchemaControl
+from ninja_jwt.settings import api_settings
 
 auth_router = Router()
 
+schema = SchemaControl(api_settings)
+
 
 @auth_router.post(
-    "/pair", response=TokenObtainPairOutputSchema, url_name="token_obtain_pair"
+    "/pair",
+    response=schema.obtain_pair_schema.get_response_schema(),
+    url_name="token_obtain_pair",
 )
-def obtain_token(request, user_token: TokenObtainPairInputSchema):
+def obtain_token(request, user_token: schema.obtain_pair_schema):
     user_token.check_user_authentication_rule()
     return user_token.output_schema()
 
 
 @auth_router.post(
     "/refresh",
-    response=TokenRefreshOutputSchema,
+    response=schema.obtain_pair_refresh_schema.get_response_schema(),
     url_name="token_refresh",
     auth=None,
 )
-def refresh_token(request, refresh_token: TokenRefreshInputSchema):
+def refresh_token(request, refresh_token: schema.obtain_pair_refresh_schema):
     return refresh_token.to_response_schema()
 
 
@@ -34,5 +33,5 @@ def refresh_token(request, refresh_token: TokenRefreshInputSchema):
     response={200: Schema},
     url_name="token_verify",
 )
-def verify_token(request, token: TokenVerifyInputSchema):
+def verify_token(request, token: schema.verify_schema):
     return token.to_response_schema()
