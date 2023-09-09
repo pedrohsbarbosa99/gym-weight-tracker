@@ -11,7 +11,7 @@ class BaseBackendOAuth:
     def get_user_details(self, response):
         raise NotImplementedError("`get_user_details()` must be implemented.")
 
-    def validate(self, token):
+    def authenticate(self, token):
         response = self.get_token_reponse(token)
         user_info = self.get_user_details(response)
         if username := user_info.get(User.USERNAME_FIELD):
