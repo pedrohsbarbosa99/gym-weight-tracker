@@ -46,3 +46,35 @@ class Progression(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.exercise.name} - {self.created_at:%d/%m/%y} - {self.weight} kg"
+
+
+class Routine(models.Model):
+    name = models.CharField(max_length=255)
+    goal = models.CharField(max_length=255)
+    initial_date = models.DateField()
+    end_date = models.DateField()
+    user = models.ForeignKey("account.User", on_delete=models.CASCADE)
+
+
+class RoutineExercise(models.Model):
+    routine = models.ForeignKey(Routine, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    sets = models.PositiveIntegerField()
+    reps_min = models.PositiveIntegerField()
+    reps_max = models.PositiveIntegerField()
+
+
+class RoutineExerciseExecution(models.Model):
+    DIFFICULTY_CHOICES = [
+        ("easy", "Fácil"),
+        ("medium", "Médio"),
+        ("hard", "Difícil"),
+    ]
+    difficulty_level = models.CharField(
+        max_length=20, choices=DIFFICULTY_CHOICES
+    )
+    routine_exercise = models.ForeignKey(
+        RoutineExercise, on_delete=models.CASCADE
+    )
+    done = models.BooleanField(default=False)
+    done_at = models.DateTimeField(auto_now_add=True)
