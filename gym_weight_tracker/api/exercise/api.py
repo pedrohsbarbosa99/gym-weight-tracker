@@ -25,7 +25,9 @@ def exercises(
 
 @exercise_router.patch("/{exercise_id}")
 def update_exercise(request, exercise_id: str, payload: ExerciseInputSchema):
-    Exercise.objects.filter(pk=exercise_id).update(**payload.dict(exclude_none=True))
+    Exercise.objects.filter(pk=exercise_id).update(
+        **payload.dict(exclude_none=True)
+    )
     return {"Success": True}
 
 
