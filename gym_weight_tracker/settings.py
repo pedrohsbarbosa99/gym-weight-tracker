@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "ninja_jwt",
     "debug_toolbar",
     "django_extensions",
-    "ninja_extra",
     "gym_weight_tracker.core",
     "gym_weight_tracker.account",
     "gym_weight_tracker.nutrition",

@@ -4,13 +4,14 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import get_object_or_404
 from ninja import Query
 from ninja.pagination import RouterPaginated
+from ninja_jwt.authentication import JWTAuth
 
 from gym_weight_tracker.core.models import Exercise
 
 from .filters import ExerciseFilterSchema
 from .schema import ExerciseInputSchema, ExerciseSchema
 
-exercise_router = RouterPaginated()
+exercise_router = RouterPaginated(auth=JWTAuth())
 
 
 @exercise_router.get("", response=List[ExerciseSchema])
@@ -25,7 +26,9 @@ def exercises(
 
 @exercise_router.patch("/{exercise_id}")
 def update_exercise(request, exercise_id: str, payload: ExerciseInputSchema):
-    Exercise.objects.filter(pk=exercise_id).update(**payload.dict(exclude_none=True))
+    Exercise.objects.filter(pk=exercise_id).update(
+        **payload.dict(exclude_none=True)
+    )
     return {"Success": True}
 
 
