@@ -3,7 +3,6 @@ from typing import List
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import F, OuterRef, Subquery
 from ninja.pagination import RouterPaginated
-from ninja_jwt.authentication import JWTAuth
 
 from gym_weight_tracker.core.models import Exercise, Progression
 
@@ -13,7 +12,7 @@ from .schema import (
     ProgressionSchema,
 )
 
-progression_router = RouterPaginated(auth=JWTAuth())
+progression_router = RouterPaginated()
 
 
 @progression_router.get(

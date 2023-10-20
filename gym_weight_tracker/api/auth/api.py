@@ -12,6 +12,7 @@ schema = SchemaControl(api_settings)
     "/pair",
     response=schema.obtain_pair_schema.get_response_schema(),
     url_name="token_obtain_pair",
+    auth=None,
 )
 def obtain_token(request, user_token: schema.obtain_pair_schema):
     user_token.check_user_authentication_rule()
@@ -32,6 +33,7 @@ def refresh_token(request, refresh_token: schema.obtain_pair_refresh_schema):
     "/verify",
     response={200: Schema},
     url_name="token_verify",
+    auth=None,
 )
 def verify_token(request, token: schema.verify_schema):
     return token.to_response_schema()
