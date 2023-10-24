@@ -7,7 +7,7 @@ psycopg2-binary==2.9.6
 django-ninja==0.21.0
 django-cors-headers==4.0.0
 django-cockroachdb==4.1
-django-ninja-jwt==5.2.5
+django-ninja-jwt==5.2.6
 django-extensions==3.2.3
 django-debug-toolbar==4.2.0
 six==1.16.0
