@@ -13,11 +13,12 @@ on:
 jobs:
   build:
     services:
-      cockroach:
+      cockroachdb:
         image: timveil/cockroachdb-single-node:latest
-        options: --entrypoint "/cockroach/cockroach.sh start-single-node --insecure"
+        options: -e COCKROACH_INSECURE
         ports:
           - 26257:26257
+
 
     runs-on: ubuntu-latest
     strategy:
