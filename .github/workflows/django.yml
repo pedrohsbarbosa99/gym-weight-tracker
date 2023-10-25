@@ -2,22 +2,32 @@ name: Django CI
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - development
   pull_request:
-    branches: 
+    branches:
       - main
       - development
 
 jobs:
   build:
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    services:
+      cockroachdb:
+        image: timveil/cockroachdb-single-node:latest
+        options: -e COCKROACH_INSECURE
+        ports:
+          - 26257:26257
+
 
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v3
