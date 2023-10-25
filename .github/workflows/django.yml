@@ -12,6 +12,8 @@ on:
 
 jobs:
   build:
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     services:
       cockroachdb:
         image: timveil/cockroachdb-single-node:latest
